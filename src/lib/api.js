@@ -33,6 +33,9 @@ export async function getSubGenres() {
 export async function getLatestSongs() {
   const res = await fetch(
     `${STRAPI_URL}/api/songs?sort=createdAt:desc&pagination[limit]=120&populate=*`,
+    {
+      cache: "no-store",
+    },
   );
   if (!res.ok) {
     throw new Error("there is error");
