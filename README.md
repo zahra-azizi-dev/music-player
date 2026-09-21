@@ -2,7 +2,7 @@
 
 > A modern Persian music streaming platform built with **Next.js, React, and Strapi**, designed to provide a smooth and immersive music discovery experience.
 
-[![Live Demo](https://music-player-zahra-azizi.vercel.app/)]
+Live Demo[https://music-player-zahra-azizi.vercel.app/]
 
 
 ---
