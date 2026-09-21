@@ -1,36 +1,211 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎵 Gramophone — Persian Music Player
 
-## Getting Started
+> A modern Persian music streaming platform built with **Next.js, React, and Strapi**, designed to provide a smooth and immersive music discovery experience.
 
-First, run the development server:
+[![Live Demo](https://music-player-zahra-azizi.vercel.app/)]
+
+---
+
+## ✨ Overview
+
+**Gramophone** is a full-stack Persian music platform created as a portfolio project to explore modern frontend development, API integration, content management, and production deployment.
+
+The application combines a responsive music-focused interface with a **Strapi CMS backend**, allowing songs, artists, albums, genres, and categories to be managed dynamically without hardcoding content in the frontend.
+
+The project focuses on building a polished music experience with a dark visual identity, smooth interactions, responsive layouts, and a custom audio player.
+
+---
+
+## 🎧 Features
+
+* 🎵 Custom audio player with play, pause, next, and previous controls
+* 🔎 Dynamic music search
+* ❤️ Favorite songs
+* 🎤 Artist profiles and artist-based music collections
+* 💿 Album pages
+* 🎼 Genre and category browsing
+* 🔥 Latest and featured songs
+* 📱 Fully responsive design
+* 🌙 Dark music-focused UI
+* ✨ Smooth UI interactions and animations
+* 🖼️ Dynamic cover artwork
+* ☁️ Cloudinary media integration
+* 🗂️ Content management through Strapi
+* 🚀 Production deployment with Vercel and Railway
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Next.js**
+* **React**
+* **Tailwind CSS**
+* **Framer Motion**
+* **Lucide React**
+
+### Backend
+
+* **Strapi**
+* REST API
+
+### Media
+
+* **Cloudinary**
+
+### Deployment
+
+* **Vercel** — Frontend
+* **Railway** — Strapi Backend
+
+---
+
+## 🏗️ Architecture
+
+```text
+┌──────────────────────┐
+│      Next.js         │
+│      Frontend        │
+└──────────┬───────────┘
+           │
+           │ REST API
+           ▼
+┌──────────────────────┐
+│       Strapi         │
+│      CMS / API       │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│     Cloudinary       │
+│   Media / Artwork    │
+└──────────────────────┘
+```
+
+The frontend communicates with Strapi through REST API endpoints. Content such as songs, artists, albums, and categories is managed through the Strapi dashboard.
+
+---
+
+## 📂 Main Features & Data Models
+
+The backend is structured around several connected content types:
+
+* **Songs**
+* **Artists**
+* **Albums**
+* **Categories**
+* **Genres**
+
+Songs can be associated with artists and multiple categories, allowing the same track to appear across different music collections.
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_STRAPI_URL=your_strapi_api_url
+```
+
+For example:
+
+```env
+NEXT_PUBLIC_STRAPI_URL=https://your-strapi-domain.com
+```
+
+> Do not commit environment files containing private credentials or secrets.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd music-player
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure environment variables
+
+Create:
+
+```text
+.env.local
+```
+
+and add your Strapi API URL:
+
+```env
+NEXT_PUBLIC_STRAPI_URL=your_strapi_api_url
+```
+
+### 4. Start the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+### Home
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*Add a screenshot of the homepage here.*
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Music Player
 
-## Deploy on Vercel
+*Add a screenshot of the player here.*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Artist / Album
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Add a screenshot of an artist or album page here.*
+
+---
+
+## 🌐 Live Demo
+
+**Frontend:**
+[View Live Application](YOUR_VERCEL_URL)
+
+**Backend:**
+Strapi API is deployed separately and consumed by the Next.js frontend.
+
+---
+
+## 🎯 Project Goals
+
+This project was built to practice and demonstrate:
+
+* Modern React and Next.js development
+* Component-based UI architecture
+* State management with React Context
+* REST API integration
+* Headless CMS architecture
+* Dynamic routing
+* Responsive UI development
+* Media management
+* Production deployment
+* Frontend/backend separation
+
+---
+
+## 📄 License
+
+This project was created for educational and portfolio purposes.
+created by ZahraAzizi
