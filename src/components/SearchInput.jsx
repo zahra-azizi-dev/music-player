@@ -1,9 +1,9 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Search } from "lucide-react";
-import React from "react";
+import React, { Suspense } from "react";
 
-export default function SearchInput() {
+function SearchInputInner() {
   const route = useRouter();
   const searchParams = useSearchParams();
   function handleChange(e) {
@@ -25,5 +25,15 @@ export default function SearchInput() {
           transition-all duration-300 hover:border-white/15 hover:bg-white/[0.07] focus:border-red-800/60 focus:bg-white/[0.08] focus:shadow-[0_0_25px_rgba(120,0,10,0.15)]"
       />
     </div>
+  );
+}
+
+export default function SearchInput() {
+  return (
+    <Suspense
+      fallback={<div className="h-11 w-full rounded-xl bg-white/[0.05]" />}
+    >
+      <SearchInputInner />
+    </Suspense>
   );
 }
