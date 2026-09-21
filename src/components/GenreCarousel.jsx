@@ -12,7 +12,7 @@ export default function GenreCarousel({ subGenres }) {
           style={{ width: `${100 / totalItems}%` }}
           key={val.id}
           href={`/category/${val.slug}`}
-          className="group relative block aspect-[5/3] w-full shrink-0 px-1.5"
+          className="group relative block aspect-[5/4.2] w-full shrink-0 px-1.5"
         >
           {val.coverUrl ? (
             <div className="relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] shadow-[0_12px_30px_rgba(0,0,0,0.25)] transition-all duration-500 group-hover:-translate-y-1 group-hover:border-white/20 group-hover:shadow-[0_18px_40px_rgba(0,0,0,0.4)]">
