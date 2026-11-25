@@ -2,9 +2,11 @@ const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 export async function getCategories() {
   const res = await fetch(`${STRAPI_URL}/api/categories?populate=*`);
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -15,8 +17,10 @@ export async function getCategoryBySlug(slug) {
   );
 
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data[0];
 }
@@ -25,8 +29,10 @@ export async function getSubGenres() {
     `${STRAPI_URL}/api/categories?filters[parent][id][$notNull]=true&populate[songs][populate]=artist`,
   );
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -37,9 +43,11 @@ export async function getLatestSongs() {
       cache: "no-store",
     },
   );
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   const seenArtists = new Set();
   const uniqueLatestSongs = result.data.filter((song) => {
@@ -59,8 +67,10 @@ export async function getSingleSongs() {
     `${STRAPI_URL}/api/songs?filters[categories][slug][$eq]=best-of-the-best&populate=*`,
   );
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -69,8 +79,10 @@ export async function searchSongs(query) {
     `${STRAPI_URL}/api/songs?filters[title][$containsi]=${query}&populate=*`,
   );
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -83,17 +95,21 @@ export async function getSongBySlug(slug) {
   const res = await fetch(
     `${STRAPI_URL}/api/songs?filters[slug][$eq]=${slug}&populate=*`,
   );
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data[0];
 }
 export async function getArtists() {
   const res = await fetch(`${STRAPI_URL}/api/artists?populate=*`);
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -101,9 +117,11 @@ export async function getArtistBySlug(slug) {
   const res = await fetch(
     `${STRAPI_URL}/api/artists?filters[slug][$eq]=${slug}&populate[songs][populate]=artist&populate[albums][populate]=*`,
   );
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data[0];
 }
@@ -112,8 +130,10 @@ export async function getAlbumsByArtist(slug) {
     `${STRAPI_URL}/api/albums?filters[artist][slug][$eq]=${slug}&populate=*`,
   );
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data;
 }
@@ -122,8 +142,10 @@ export async function getAlbumBySlug(slug) {
     `${STRAPI_URL}/api/albums?filters[slug][$eq]=${slug}&populate[songs][populate]=artist&populate[artist][populate]=*`,
   );
   if (!res.ok) {
-    throw new Error("there is error");
-  }
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
   const result = await res.json();
   return result.data[0];
 }
@@ -131,9 +153,11 @@ export async function getMainCategories() {
   const res = await fetch(
     `${STRAPI_URL}/api/categories?filters[parent][$null]=true`,
   );
-  if (!res.ok) {
-    throw new Error("there is error");
-  }
+ if (!res.ok) {
+  throw new Error(
+    `Strapi error: ${res.status} ${res.statusText} - ${res.url}`
+  );
+}
 
   const data = await res.json();
   return data.data;
